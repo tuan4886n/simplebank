@@ -1,20 +1,21 @@
 package util
 
-import(
+import (
+	"fmt"
 	"math/rand"
-	"time"
 	"strings"
+	"time"
 )
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-func init(){
+func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
 // tạo số nguyên ngẫu nhiên giữa max min
-func RandomInt(min,max int64) int64{
-	return min + rand.Int63n(max - min + 1)
+func RandomInt(min, max int64) int64 {
+	return min + rand.Int63n(max-min+1)
 }
 
 // tạo chuỗi ngẫu nhiên độ dài n
@@ -42,11 +43,12 @@ func RandomMoney() int64 {
 
 // tạo đơn vi tiền random
 func RandomCurrency() string {
-	currencies := []string{"USD", "EUR", "VND"}
+	currencies := []string{USD, EUR, VND}
 	n := len(currencies)
 	return currencies[rand.Intn(n)]
 }
 
-
-
-
+// tạo Email random
+func RandomEmail() string {
+	return fmt.Sprintf("%s@email.com", RandomString(6))
+}
