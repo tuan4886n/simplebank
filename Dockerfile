@@ -15,6 +15,8 @@ COPY app.env .
 COPY start.sh .
 COPY wait-for.sh .
 COPY db/migration ./migration
+RUN chmod +x /app/start.sh
+RUN chmod +x /app/wait-for.sh
 
 
 EXPOSE 8080
