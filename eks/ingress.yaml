@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-bank-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "api.ab1b7482f868c4a2fb918bda6677e2cb-1379548772.ap-southeast-2.elb.amazonaws.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: simple-bank-api-service
+            port:
+              number: 80
